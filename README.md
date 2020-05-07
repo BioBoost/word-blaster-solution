@@ -61,3 +61,7 @@ Words need to be loaded from a file. `WordLoader` loads words from a file and pl
 Later on different files will exist for the different difficulties. However, `WordLoader` does not have to know this.
 
 `WordLoader` does not need to keep any state for its single method. Because of this the method is made `static` which means it is not called on an object of `WordLoader` but rather on the class itself.
+
+### Step 4 - Some Game Logic
+
+Basic game logic consists of asking the user to repeat a certain number of words. This can be accomplished by a simple `for` construct. In this step the code is placed in main. Next steps will refactor this.
