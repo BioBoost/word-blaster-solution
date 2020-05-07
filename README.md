@@ -134,3 +134,11 @@ PRESS ENTER TO CONTINUE
 ```
 
 By adding some private methods such as `show_heading()` to `UserIO`, each output screen can be made similar in layout.
+
+### Step 10 - A ScoreBoard class
+
+Typically a game tracks the scores of the players between different game sessions by saving the scores in a file. These will then be loaded when the user starts the game.
+
+We will start of with a `Scoreboard` class that can track a list of scores. Using an `std::vector` this will be easiest. 
+
+An object of `Scoreboard` can then be added to the game. Then the score of the player can be added to the board once the game is finished.

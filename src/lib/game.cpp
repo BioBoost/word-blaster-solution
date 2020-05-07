@@ -31,6 +31,7 @@ namespace WordBlasterTheGame {
       }
     }
 
+    scoreboard.add(score);
     UserIO::show_final_score(score);
   }
 

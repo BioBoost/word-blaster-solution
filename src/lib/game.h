@@ -2,6 +2,7 @@
 
 #include "word_list.h"
 #include "score.h"
+#include "scoreboard.h"
 
 namespace WordBlasterTheGame {
 
@@ -31,6 +32,7 @@ namespace WordBlasterTheGame {
     private:
       WordList words;
       Player player;
+      Scoreboard scoreboard;
 
   };
 
