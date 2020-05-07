@@ -43,3 +43,9 @@ Step titles are same as the commit messages. This way you can follow along.
 ### Step 1 - Simple Hello World
 
 Output basic message and make sure everything (compiler and makefile) works.
+
+### Step 2 - A WordList class
+
+WordList can track a list of words and provide randomly selected word.
+
+Single responsibility so no loading from file and such. Responsibility of another class.

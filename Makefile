@@ -23,7 +23,8 @@ SRCDIR=src
 LIBDIR=$(SRCDIR)/lib
 BUILDDIR=bin
 
-OBJS := $(SRCDIR)/main.o
+OBJS := $(SRCDIR)/main.o \
+				$(LIBDIR)/word_list.o
 
 all: makebuildir $(TARGET)
 
