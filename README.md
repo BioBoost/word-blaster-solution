@@ -14,6 +14,10 @@ This project is equipped with a make file to build and run the game. Just run th
 make run
 ```
 
+### Doxygen
+
+This project contains doxygen comments which can be generated into a fancy API site. Just install [doxygen](http://www.doxygen.nl/) and run the `doxygen` or `make docs` command (you may need to add doxygen to your PATH) in the root directory of this project. The html output can be found at [./docs/html/index.html](./docs/html/index.html).
+
 ## Part of C++ Course
 
 This project was a challenge for the students of the VIVES University College in Bruges as part of the C++ course.
