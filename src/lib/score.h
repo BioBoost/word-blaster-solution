@@ -1,10 +1,20 @@
 #pragma once
 
 #include <string>
+#include "player.h"
 
 namespace WordBlasterTheGame {
 
   class Score {
+
+    public:
+      /**
+       * Create a new score for the player.
+       *
+       * @param player: a pointer to the player object
+       * to which the score object belongs
+       */
+      Score(Player * player);
 
     public:
       /**
@@ -26,6 +36,7 @@ namespace WordBlasterTheGame {
 
     private:
       unsigned int score = 0;
+      Player * player = nullptr;
   };
 
 };

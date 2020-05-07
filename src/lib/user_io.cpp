@@ -11,6 +11,13 @@ namespace WordBlasterTheGame {
     cout << "Your next gen typing experience" << endl;
   }
 
+  std::string UserIO::request_nickname(void) {
+    cout << "Please enter a nickname to play with: ";
+    std::string nickname;
+    getline(cin, nickname);
+    return nickname;
+  }
+
   void UserIO::show_word_to_type(unsigned int number, std::string word) {
     cout << "Word #" << (number+1) << endl;
     cout << word << endl << endl;

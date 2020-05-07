@@ -95,3 +95,21 @@ In one of the following steps we will also be adding a `Player` to the game to w
 Game will need to track the `Score` of the current game. An attribute can be added to the class for this.
 
 Let's also add a method to `UserIO` to output the final score of the user.
+
+### Step 8 - A Player class
+
+It's time to add a player. This will be required once we want to start keeping a score board.
+
+When the application starts we will ask the user for a nickname and store this inside of the `Player` class. The player should then be injected into the `Game` object upon construction. This will later allow us to ask the player if he/she wishes to start another game without requiring hem/her to enter the nickname again.
+
+We will also alter the `Score` class so it keep a pointer to the `Player` to which the score belongs. This can also be accomplished via the constructor.
+
+Why not add a Score object as an attribute to Player? Well basically because a Player will be able to have multiple score's in the `Scoreboard`. That would mean we would have to track these in a list (inside of player). On top of that the Player object doesn't really need to know all of its scores. The Scoreboard will need to track these.
+
+The Score object of `Game` should also be moved in the `play` method as a local variable (instead of an attribute) for a couple of reasons:
+
+* we only need it in the play method
+* every time play is called a new score is required
+* the constructor of game takes in a Player object, we cannot use a pointer to this object to initialize score as it is a copy which will go out of scope after the constructor is done.
+
+If we were to follow this route (as an attribute of game) we would need to create the score on the heap.

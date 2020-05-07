@@ -17,6 +17,13 @@ namespace WordBlasterTheGame {
       static void show_welcome(void);
 
       /**
+       * Request a nickname from the user
+       *
+       * @returns the nickname of the user as a string
+       */
+      static std::string request_nickname(void);
+
+      /**
        * Output the next word for the user to type.
        *
        * @param word: word for the user to type

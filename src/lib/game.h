@@ -13,6 +13,15 @@ namespace WordBlasterTheGame {
 
     public:
       /**
+       * Create a game for the current player.
+       *
+       * @param player: the player for which the game
+       * is intended
+       */
+      Game(Player player);
+
+    public:
+      /**
        * Play the game. This will requests words to be typed by
        * the user.
        *
@@ -21,7 +30,7 @@ namespace WordBlasterTheGame {
 
     private:
       WordList words;
-      Score score;
+      Player player;
 
   };
 

@@ -28,7 +28,8 @@ OBJS := $(SRCDIR)/main.o \
 				$(LIBDIR)/word_loader.o \
 				$(LIBDIR)/game.o \
 				$(LIBDIR)/user_io.o \
-				$(LIBDIR)/score.o
+				$(LIBDIR)/score.o \
+				$(LIBDIR)/player.o
 
 all: makebuildir $(TARGET)
 
