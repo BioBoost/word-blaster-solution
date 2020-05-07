@@ -35,3 +35,11 @@ Try to make the game a bit more appealing by using for example ascii art or othe
 Document the project with a decent `README.md` and UML class diagrams. Also explain new techniques or things you used to build the app.
 
 Also include a `Makefile` so the project can be easily built using a single `make` command.
+
+## Steps Taken
+
+Step titles are same as the commit messages. This way you can follow along.
+
+### Step 1 - Simple Hello World
+
+Output basic message and make sure everything (compiler and makefile) works.
