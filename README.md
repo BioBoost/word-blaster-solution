@@ -53,3 +53,11 @@ Output basic message and make sure everything (compiler and makefile) works.
 WordList can track a list of words and provide randomly selected word.
 
 Single responsibility so no loading from file and such. Responsibility of another class.
+
+### Step 3 - A WordLoader class
+
+Words need to be loaded from a file. `WordLoader` loads words from a file and places them in a `WordList`.
+
+Later on different files will exist for the different difficulties. However, `WordLoader` does not have to know this.
+
+`WordLoader` does not need to keep any state for its single method. Because of this the method is made `static` which means it is not called on an object of `WordLoader` but rather on the class itself.

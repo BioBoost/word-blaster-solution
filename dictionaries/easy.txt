@@ -1,0 +1,5 @@
+easy
+hello
+dog
+cat
+fun

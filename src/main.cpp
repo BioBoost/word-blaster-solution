@@ -1,5 +1,6 @@
 #include <iostream>
 #include "lib/word_list.h"
+#include "lib/word_loader.h"
 
 using namespace std;
 using namespace WordBlasterTheGame;
@@ -10,9 +11,9 @@ int main() {
 
   // Test the WordList class
   WordList words;
-  words.add("hello");
-  words.add("world");
-  words.add("dude");
+
+  // Load the words from a file this time
+  WordLoader::load(&words, "./dictionaries/easy.txt");    // Calling static method !!!
 
   cout << "Random word from list: " << words.get_random_word() << endl;
 
