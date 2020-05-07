@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "score.h"
 
 namespace WordBlasterTheGame {
 
@@ -28,6 +29,13 @@ namespace WordBlasterTheGame {
        * @returns the word that the user typed as a string
        */
       static std::string request_user_to_type_word(void);
+
+      /**
+       * Output the final score of the user.
+       *
+       * @param score: the final score to be shown
+       */
+      static void show_final_score(Score score);
 
   };
 

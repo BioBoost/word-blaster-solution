@@ -1,6 +1,7 @@
 #pragma once
 
 #include "word_list.h"
+#include "score.h"
 
 namespace WordBlasterTheGame {
 
@@ -20,6 +21,7 @@ namespace WordBlasterTheGame {
 
     private:
       WordList words;
+      Score score;
 
   };
 

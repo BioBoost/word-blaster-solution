@@ -23,6 +23,8 @@ namespace WordBlasterTheGame {
         return userWord;
       }
 
-  };
+      void UserIO::show_final_score(Score score) {
+        cout << endl << "Your final score is " << score.total_score() << endl;
+      }
 
 };

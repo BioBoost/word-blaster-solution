@@ -83,3 +83,15 @@ If this separation is done early in the development process, it's a much less pa
 Basically we need a class that has some methods that can request a word from the user, output the next word, output some stats about his/her score and so on. This class will not need to track any state as each method call will require all the needed information to be supplied. The `Game` class tracks all state here.
 
 The end result should be a `Game` class without a single `cout`, `getline` or `cin`. The `UserIO` methods should not contain any game logic. This means that for example the comparison of the generated word and the user input should happen in the game class.
+
+### Step 7 - A Score class
+
+At the moment no score is tracked for the player. One could state that we could just track the number of wrongly typed words in the Game class but if the scoring mechanism will get a bit more complex, it will needs it's own class.
+
+For the moment we can use the length of the word as a score parameter. Later we can add timing and such.
+
+In one of the following steps we will also be adding a `Player` to the game to which an object of `Score` will belong.
+
+Game will need to track the `Score` of the current game. An attribute can be added to the class for this.
+
+Let's also add a method to `UserIO` to output the final score of the user.
