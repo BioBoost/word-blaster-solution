@@ -4,6 +4,11 @@
 
 namespace WordBlasterTheGame {
 
+  /**
+   * The Player class represents the players
+   * that play this game. Each player can choose
+   * his/her nickname.
+   */
   class Player {
 
     public:

@@ -5,6 +5,9 @@
 
 namespace WordBlasterTheGame {
 
+  /**
+   * Track the score of a player.
+   */
   class Score {
 
     public:
