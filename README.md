@@ -65,3 +65,11 @@ Later on different files will exist for the different difficulties. However, `Wo
 ### Step 4 - Some Game Logic
 
 Basic game logic consists of asking the user to repeat a certain number of words. This can be accomplished by a simple `for` construct. In this step the code is placed in main. Next steps will refactor this.
+
+### Step 5 - A Game class
+
+This kind of logic cannot be kept in main. This typically screams for a `Game` class with a basic `play()` method. `WordList` will also need to be moved as attribute of `Game` (composition).
+
+Tip: Just move the `for` loop into the `play()` method and check out what extra information you need for the code to work.
+
+This still requires some serious refactoring.
