@@ -73,3 +73,13 @@ This kind of logic cannot be kept in main. This typically screams for a `Game` c
 Tip: Just move the `for` loop into the `play()` method and check out what extra information you need for the code to work.
 
 This still requires some serious refactoring.
+
+### Step 6 - User Input Output class
+
+Problem with the current `Game` class is the fact that it handles user IO. If possible, it is a good idea to separate the user IO from the game logic. This would actually allow the game to be used with a GUI instead of a terminal and only a single class would have to be provided.
+
+If this separation is done early in the development process, it's a much less painful operation.
+
+Basically we need a class that has some methods that can request a word from the user, output the next word, output some stats about his/her score and so on. This class will not need to track any state as each method call will require all the needed information to be supplied. The `Game` class tracks all state here.
+
+The end result should be a `Game` class without a single `cout`, `getline` or `cin`. The `UserIO` methods should not contain any game logic. This means that for example the comparison of the generated word and the user input should happen in the game class.

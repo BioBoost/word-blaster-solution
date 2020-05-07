@@ -1,7 +1,7 @@
 #include "game.h"
 
-#include <iostream>
 #include "word_loader.h"
+#include "lib/user_io.h"
 
 using namespace std;
 
@@ -16,18 +16,15 @@ namespace WordBlasterTheGame {
       // at the end to check if it is correct
       std::string wordToType = words.get_random_word();
 
-      cout << "Word #" << (i+1) << endl;
-      cout << wordToType << endl << endl;
+      UserIO::show_word_to_type(i, wordToType);
+      std::string userWord = UserIO::request_user_to_type_word();
 
-      cout << "Type your word here [enter to pass]: ";
-      std::string userWord;
-      getline(cin, userWord);
-
-      if (userWord == wordToType) {
-        cout << "Very good!" << endl << endl;
-      } else {
-        cout << "To bad :(" << endl << endl;
-      }
+      // We'll refactor this in the next step
+      // if (userWord == wordToType) {
+      //   cout << "Very good!" << endl << endl;
+      // } else {
+      //   cout << "To bad :(" << endl << endl;
+      // }
 
     }
   }

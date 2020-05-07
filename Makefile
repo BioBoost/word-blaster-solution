@@ -26,7 +26,8 @@ BUILDDIR=bin
 OBJS := $(SRCDIR)/main.o \
 				$(LIBDIR)/word_list.o \
 				$(LIBDIR)/word_loader.o \
-				$(LIBDIR)/game.o
+				$(LIBDIR)/game.o \
+				$(LIBDIR)/user_io.o
 
 all: makebuildir $(TARGET)
 
