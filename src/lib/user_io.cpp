@@ -6,32 +6,60 @@ using namespace std;
 
 namespace WordBlasterTheGame {
 
-  void UserIO::show_welcome(void) {
+  void UserIO::show_welcome_screen(void) {
+    clear_terminal();
+    show_heading();
     cout << "Welcome to Word Blaster" << endl;
-    cout << "Your next gen typing experience" << endl;
+    cout << "Your next gen typing experience" << endl << endl;
+    press_enter_to_continue();
   }
 
   std::string UserIO::request_nickname(void) {
+    clear_terminal();
+    show_heading();
     cout << "Please enter a nickname to play with: ";
-    std::string nickname;
-    getline(cin, nickname);
-    return nickname;
+    return request_string_input();
   }
 
-  void UserIO::show_word_to_type(unsigned int number, std::string word) {
-    cout << "Word #" << (number+1) << endl;
+  std::string UserIO::request_user_attempt_at_word(unsigned int number, std::string word) {
+    clear_terminal();
+    show_heading();
+    cout << endl << "Word #" << (number+1) << endl;
     cout << word << endl << endl;
-  }
 
-  std::string UserIO::request_user_to_type_word(void) {
     cout << "Type your word here [enter to pass]: ";
-    std::string userWord;
-    getline(cin, userWord);
-    return userWord;
+    return request_string_input();;
   }
 
   void UserIO::show_final_score(Score score) {
-    cout << endl << "Your final score is " << score.total_score() << endl;
+    clear_terminal();
+    show_heading();
+    cout << endl << "Your final score is " << score.total_score() << endl << endl;
+    press_enter_to_continue();
+  }
+
+  void UserIO::show_heading(void) {
+    string separator = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+
+    cout << separator << endl;
+    cout << "~ Word Blaster - Next Gen Typing Motivator        ~" << endl;
+    cout << separator << endl << endl;
+  }
+
+  void UserIO::press_enter_to_continue(void) {
+    cout << "PRESS ENTER TO CONTINUE" << endl;
+    request_string_input();
+  }
+  
+  void UserIO::clear_terminal(void) {
+    // If this doesn't work on windows, you'll need: system("cls")
+    system("clear");
+  }
+
+  std::string UserIO::request_string_input(void) {
+    std::string input;
+    getline(cin, input);
+    return input;
   }
 
 };

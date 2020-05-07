@@ -23,8 +23,7 @@ namespace WordBlasterTheGame {
       // at the end to check if it is correct
       std::string wordToType = words.get_random_word();
 
-      UserIO::show_word_to_type(i, wordToType);
-      std::string userWord = UserIO::request_user_to_type_word();
+      std::string userWord = UserIO::request_user_attempt_at_word(i, wordToType);
 
       // Check correctness and alter score if needed
       if (userWord == wordToType) {

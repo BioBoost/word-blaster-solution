@@ -113,3 +113,24 @@ The Score object of `Game` should also be moved in the `play` method as a local 
 * the constructor of game takes in a Player object, we cannot use a pointer to this object to initialize score as it is a copy which will go out of scope after the constructor is done.
 
 If we were to follow this route (as an attribute of game) we would need to create the score on the heap.
+
+### Step 9 - Refactor IO a bit
+
+While we have some functionality already, the output looks really bad. Time to refactor the terminal output a bit.
+
+Maybe we should build some sort of screens with similar layout.
+
+For example:
+
+```text
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~ Word Blaster - Next Gen Typing Motivator        ~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Welcome to Word Blaster
+Your next gen typing experience
+
+PRESS ENTER TO CONTINUE
+```
+
+By adding some private methods such as `show_heading()` to `UserIO`, each output screen can be made similar in layout.

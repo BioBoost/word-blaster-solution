@@ -7,8 +7,7 @@ using namespace std;
 using namespace WordBlasterTheGame;
 
 int main() {
-
-  UserIO::show_welcome();
+  UserIO::show_welcome_screen();
 
   // Ask user for nickname and create player with that nickname
   Player player(UserIO::request_nickname());
