@@ -32,12 +32,10 @@ namespace WordBlasterTheGame {
     public:
       /**
        * Add score for a word that was typed correctly.
-       * In its current state the length of word will be
-       * taken into account for determining the score.
        *
-       * @param word: word that the user typed correctly
+       * @param delta: amount to add to the score
        */
-      void add_score_for_correct_word(std::string word);
+      void add_to_score(unsigned int delta);
       
     public:
       /**

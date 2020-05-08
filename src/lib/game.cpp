@@ -2,8 +2,13 @@
 
 #include "word_loader.h"
 #include "user_io.h"
+#include "helpers/score_calculator.h"
+#include <chrono>   // For timing
 
 namespace WordBlasterTheGame {
+
+  // Alias for long namespace
+  using TimePoint = std::chrono::steady_clock::time_point;
 
   const std::string Game::DICTIONARY_FILES[] = {
     "./dictionaries/easy.txt",
@@ -33,11 +38,18 @@ namespace WordBlasterTheGame {
       // at the end to check if it is correct
       std::string wordToType = words.get_random_word();
 
+      TimePoint begin = std::chrono::steady_clock::now();
       std::string userWord = UserIO::request_user_attempt_at_word(i, wordToType);
+      TimePoint end = std::chrono::steady_clock::now();
+
+      // Determine difference
+      unsigned int milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
 
       // Check correctness and alter score if needed
       if (userWord == wordToType) {
-        score.add_score_for_correct_word(wordToType);
+        score.add_to_score(ScoreCalculator::determine_score(
+          wordToType, difficulty, milliseconds
+        ));
       }
     }
 

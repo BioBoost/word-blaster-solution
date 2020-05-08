@@ -193,3 +193,13 @@ This require a couple of changes:
 * scoreboards to be loaded as the difficulty is changed because each difficulty will have it's own scoreboard.
 
 We will set the default difficulty of `Game` to `NORMAL` and add a method `change_difficulty()`.
+
+### Step 17 - Fix Scoring
+
+Currently the score only uses the word length to determine the score. To differentiate the score of players we should add parameters such as:
+
+* typing speed (for example measure time it took to type the answer)
+* the length of the word
+* the difficulty setting
+
+For this we will have to refactor the Score class a bit. Actually Score is not more than a data object and it does not have to know about the mechanism that determines the actual score (would require dependency for `Difficulty` and timing). A better option is to create a `ScoreCalculator` helper class.

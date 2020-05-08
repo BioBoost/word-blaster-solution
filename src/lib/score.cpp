@@ -12,8 +12,8 @@ namespace WordBlasterTheGame {
     this->score = score;
   }
 
-  void Score::add_score_for_correct_word(std::string word) {
-    score += word.length();
+  void Score::add_to_score(unsigned int delta) {
+    score += delta;
   }
 
   unsigned int Score::total_score(void) {
