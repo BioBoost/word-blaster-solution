@@ -21,6 +21,14 @@ namespace WordBlasterTheGame {
        */
       void add(Score score);
 
+      /**
+       * Save the scores to a file.
+       * 
+       * @param filename: path to the file where the
+       * scores need to be saved.
+       */
+      void save(std::string filename);
+
     private:
       std::vector<Score> scores;
 

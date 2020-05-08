@@ -142,3 +142,9 @@ Typically a game tracks the scores of the players between different game session
 We will start of with a `Scoreboard` class that can track a list of scores. Using an `std::vector` this will be easiest. 
 
 An object of `Scoreboard` can then be added to the game. Then the score of the player can be added to the board once the game is finished.
+
+### Step 11 - Saving the Scoreboard
+
+To save the scores we will be making use of a simple separator between the score and the player name. CSV (Comma Separated Values) is a popular format where each property is separated with a comma and each entry is saved as a single line. This parses more easily after the file has been loaded too.
+
+To be able to save the player name along with the score we will also need a `get_player()` method for `Score`.

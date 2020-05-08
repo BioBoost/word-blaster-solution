@@ -32,6 +32,7 @@ namespace WordBlasterTheGame {
     }
 
     scoreboard.add(score);
+    scoreboard.save("./easy_scores.txt");
     UserIO::show_final_score(score);
   }
 

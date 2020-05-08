@@ -14,4 +14,8 @@ namespace WordBlasterTheGame {
     return score;
   }
 
+  Player * Score::get_player(void) {
+    return player;
+  }
+
 };

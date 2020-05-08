@@ -36,6 +36,14 @@ namespace WordBlasterTheGame {
        * @returns the total score as an unsigned integer
        */
       unsigned int total_score(void);
+      
+    public:
+      /**
+       * Get the player to which this score belongs.
+       *
+       * @returns a pointer to the player of the score
+       */
+      Player * get_player(void);
 
     private:
       unsigned int score = 0;
