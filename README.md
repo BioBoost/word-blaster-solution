@@ -162,3 +162,13 @@ We will need to take the players into account for the scores. For example we sho
 To be able to create a `Score` object based on a player and a score we will also need to add a second constructor to `Score`.
 
 We should make a destructor for Scoreboard that deletes the Player objects that were created on the heap but we have a problem here that we will need to address in the next step.
+
+### Step 14 - Player Problem
+
+We created a problem here. A player object exists in the game that can be references by score objects in the scoreboard (newly added scores). Next to that the other scores reference player objects that were created on the heap inside the Scoreboard. If the scoreboard is destructed, we are obligated to delete the players on the heap. But this cannot be done for the scores that reference the player in the Game. This would cause undefined behavior (thats an object on the stack).
+
+What we require is a single place where the player objects are created and destroyed (all of them). We could do this in the Scoreboard but it's less logical because that would mean that the Scoreboard would even need to track players that don't even have a scoreboard entry yet.
+
+A better option is to create a `PlayerManager` class that tracks all players and creates a new player if required. We inject a pointer to this object in both `Game` and `Scoreboard`.
+
+This also requires some refactoring of the main.

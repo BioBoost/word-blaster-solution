@@ -3,6 +3,7 @@
 #include "word_list.h"
 #include "score.h"
 #include "scoreboard.h"
+#include "player_manager.h"
 
 namespace WordBlasterTheGame {
 
@@ -16,10 +17,12 @@ namespace WordBlasterTheGame {
       /**
        * Create a game for the current player.
        *
-       * @param player: the player for which the game
-       * is intended
+       * @param player: a pointer to the player for
+       * which the game is intended.
+       * @param playerManager: a pointer to the
+       * player manager object.
        */
-      Game(Player player);
+      Game(Player * player, PlayerManager * playerManager);
 
     public:
       /**
@@ -31,9 +34,9 @@ namespace WordBlasterTheGame {
 
     private:
       WordList words;
-      Player player;
+      Player * player = nullptr;
       Scoreboard scoreboard;
-
+      PlayerManager * playerManager = nullptr;
   };
 
 };

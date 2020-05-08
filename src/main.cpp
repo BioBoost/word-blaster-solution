@@ -2,6 +2,7 @@
 #include "lib/game.h"
 #include "lib/user_io.h"
 #include "lib/player.h"
+#include "lib/player_manager.h"
 
 using namespace std;
 using namespace WordBlasterTheGame;
@@ -9,11 +10,14 @@ using namespace WordBlasterTheGame;
 int main() {
   UserIO::show_welcome_screen();
 
-  // Ask user for nickname and create player with that nickname
-  Player player(UserIO::request_nickname());
+  // Create PlayerManager for all the games
+  PlayerManager playerManager;
+
+  // Ask player for nickname and request player manager for player object
+  Player * currentPlayer = playerManager.get_player_by_nickname(UserIO::request_nickname());
 
   // Let's play a game of word blaster
-  Game wordblaster(player);
+  Game wordblaster(currentPlayer, &playerManager);
   wordblaster.play();
 
   return 0;

@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "score.h"
+#include "player_manager.h"
 
 namespace WordBlasterTheGame {
 
@@ -12,7 +13,15 @@ namespace WordBlasterTheGame {
   class Scoreboard {
 
     public:
+      /**
+       * Create a Scoreboard for the Game
+       *
+       * @param playerManager: a pointer to the
+       * player manager object.
+       */
+      Scoreboard(PlayerManager * playerManager);
 
+    public:
       /**
        * Add a score to the
        * scoreboard to be tracked.
@@ -45,21 +54,8 @@ namespace WordBlasterTheGame {
       void load(std::string filename);
 
     private:
-      /**
-       * Get a player from the scoreboard by
-       * his/her nickname. If the player
-       * does not exist yet, a new player
-       * is returned.
-       * 
-       * @param nickname: the nickname of the player
-       * 
-       * @returns a pointer to an existing or new player object
-       */
-      Player * get_player_by_nickname(std::string nickname);
-
-    private:
       std::vector<Score> scores;
-
+      PlayerManager * playerManager = nullptr;
   };
 
 };

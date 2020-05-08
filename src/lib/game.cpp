@@ -7,10 +7,12 @@ using namespace std;
 
 namespace WordBlasterTheGame {
 
-  Game::Game(Player player)
-    : player(player) {
+  Game::Game(Player * player, PlayerManager * playerManager)
+    : scoreboard(playerManager) {
        // Use constructor initialization list since
-       // no default constructor exists for Player
+       // no default constructor exists for Scoreboard
+    this->player = player;
+    this->playerManager = playerManager;
   }
 
   void Game::play(void) {
@@ -18,7 +20,7 @@ namespace WordBlasterTheGame {
     WordLoader::load(&words, "./dictionaries/easy.txt");    // Calling static method !!!
     scoreboard.load("./easy_scores.txt");
 
-    Score score(&player);   // Create new score object for this play
+    Score score(player);   // Create new score object for this play
     for (unsigned int i = 0; i < 2; i++) {
       // Local variable required because we need the same word
       // at the end to check if it is correct

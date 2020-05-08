@@ -30,7 +30,8 @@ OBJS := $(SRCDIR)/main.o \
 				$(LIBDIR)/user_io.o \
 				$(LIBDIR)/score.o \
 				$(LIBDIR)/player.o \
-				$(LIBDIR)/scoreboard.o
+				$(LIBDIR)/scoreboard.o \
+				$(LIBDIR)/player_manager.o
 
 all: makebuildir $(TARGET)
 

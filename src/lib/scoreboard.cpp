@@ -4,6 +4,10 @@
 #include <fstream>
 
 namespace WordBlasterTheGame {
+  
+  Scoreboard::Scoreboard(PlayerManager * playerManager) {
+    this->playerManager = playerManager;
+  }
 
   void Scoreboard::add(Score score) {
     scores.push_back(score);
@@ -57,28 +61,12 @@ namespace WordBlasterTheGame {
 
       if (name != "" && points != "") {
         int score = std::stoi(points);
-        add(Score(get_player_by_nickname(name), score));
+        add(Score(playerManager->get_player_by_nickname(name), score));
       }
     } while (file.good());
 
     // Close the file
     file.close();
-  }
-
-  Player * Scoreboard::get_player_by_nickname(std::string nickname) {
-    Player * player = nullptr;
-    for (auto && score : scores) {
-      if (score.get_player()->get_nickname() == nickname) {
-        player = score.get_player();
-        break;
-      }
-    }
-
-    if (!player) {
-      player = new Player(nickname);
-    }
-
-    return player;
   }
 
 };
