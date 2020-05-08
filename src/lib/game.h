@@ -4,6 +4,7 @@
 #include "score.h"
 #include "scoreboard.h"
 #include "player_manager.h"
+#include "difficulty.h"
 
 namespace WordBlasterTheGame {
 
@@ -32,11 +33,46 @@ namespace WordBlasterTheGame {
        */
       void play(void);
 
+      /**
+       * Change the difficulty of the game.
+       * 
+       * @param difficulty: the difficulty to change to
+       */
+      void change_difficulty(Difficulty difficulty);
+
+    private:
+      /**
+       * Load the word dictionary for the
+       * current difficulty.
+       */
+      void load_dictionary(void);
+
+      /**
+       * Load the scores from the correct file
+       * into the scoreboard for the
+       * current difficulty.
+       */
+      void load_scoreboard(void);
+
+      /**
+       * Save the scores of the scoreboard
+       * to the correct file based on the
+       * current difficulty.
+       */
+      void save_scoreboard(void);
+
     private:
       WordList words;
       Player * player = nullptr;
       Scoreboard scoreboard;
       PlayerManager * playerManager = nullptr;
+
+      Difficulty difficulty = Difficulty::NORMAL;
+
+      // Static variables are not kept on an object base
+      // but rather stored per class
+      const static std::string DICTIONARY_FILES[];
+      const static std::string SCOREBOARD_FILES[];
   };
 
 };

@@ -44,6 +44,9 @@ namespace WordBlasterTheGame {
   }
 
   void Scoreboard::load(std::string filename) {
+    // Make sure the board is cleared first
+    scores.clear();
+
     // File stream object
     std::ifstream file;
     file.open(filename);

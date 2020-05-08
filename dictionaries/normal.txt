@@ -1,0 +1,4 @@
+world
+normalize
+disaster
+management

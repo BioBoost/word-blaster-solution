@@ -3,9 +3,19 @@
 #include "word_loader.h"
 #include "user_io.h"
 
-using namespace std;
-
 namespace WordBlasterTheGame {
+
+  const std::string Game::DICTIONARY_FILES[] = {
+    "./dictionaries/easy.txt",
+    "./dictionaries/normal.txt",
+    "./dictionaries/hard.txt"
+  };
+
+  const std::string Game::SCOREBOARD_FILES[] = {
+    "./easy_scores.txt",
+    "./normal_scores.txt",
+    "./hard_scores.txt"
+  };
 
   Game::Game(Player * player, PlayerManager * playerManager)
     : scoreboard(playerManager) {
@@ -13,13 +23,10 @@ namespace WordBlasterTheGame {
        // no default constructor exists for Scoreboard
     this->player = player;
     this->playerManager = playerManager;
+    change_difficulty(Difficulty::NORMAL);
   }
 
   void Game::play(void) {
-    // Load the words from a file this time
-    WordLoader::load(&words, "./dictionaries/easy.txt");    // Calling static method !!!
-    scoreboard.load("./easy_scores.txt");
-
     Score score(player);   // Create new score object for this play
     for (unsigned int i = 0; i < 2; i++) {
       // Local variable required because we need the same word
@@ -35,9 +42,28 @@ namespace WordBlasterTheGame {
     }
 
     scoreboard.add(score);
-    scoreboard.save("./easy_scores.txt");
+    save_scoreboard();
     UserIO::show_final_score(score);
     UserIO::show_scoreboard(&scoreboard);
+  }
+
+  void Game::change_difficulty(Difficulty difficulty) {
+    this->difficulty = difficulty;
+    load_dictionary();
+    load_scoreboard();
+  }
+
+  void Game::load_dictionary(void) {
+    words.clear();
+    WordLoader::load(&words, DICTIONARY_FILES[(int)(difficulty)]);    // Calling static method !!!
+  }
+
+  void Game::load_scoreboard(void) {
+    scoreboard.load(SCOREBOARD_FILES[(int)(difficulty)]);
+  }
+
+  void Game::save_scoreboard(void) {
+    scoreboard.save(SCOREBOARD_FILES[(int)(difficulty)]);
   }
 
 };

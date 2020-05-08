@@ -182,3 +182,14 @@ The fun thing here is that our `Score` objects are stored in an `std::vector` wh
 A basic example can be found at [http://www.cplusplus.com/reference/algorithm/sort/](http://www.cplusplus.com/reference/algorithm/sort/).
 
 Let's also add a `comparators` directory below `lib` as a start for adding some hierarchy to our files.
+
+### Step 16 - Adding Different Difficulties
+
+The difficulty can best be implemented using a class enum.
+
+This require a couple of changes:
+
+* the difficulty will determine which list of words needs to be loaded
+* scoreboards to be loaded as the difficulty is changed because each difficulty will have it's own scoreboard.
+
+We will set the default difficulty of `Game` to `NORMAL` and add a method `change_difficulty()`.
