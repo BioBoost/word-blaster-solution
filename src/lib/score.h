@@ -19,6 +19,16 @@ namespace WordBlasterTheGame {
        */
       Score(Player * player);
 
+      /**
+       * Create a Score object for the player with
+       * a predefined score.
+       *
+       * @param player: a pointer to the player object
+       * to which the score object belongs
+       * @param score: the score for the player
+       */
+      Score(Player * player, unsigned int score);
+
     public:
       /**
        * Add score for a word that was typed correctly.

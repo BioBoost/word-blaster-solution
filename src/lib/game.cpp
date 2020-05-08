@@ -16,6 +16,7 @@ namespace WordBlasterTheGame {
   void Game::play(void) {
     // Load the words from a file this time
     WordLoader::load(&words, "./dictionaries/easy.txt");    // Calling static method !!!
+    scoreboard.load("./easy_scores.txt");
 
     Score score(&player);   // Create new score object for this play
     for (unsigned int i = 0; i < 2; i++) {

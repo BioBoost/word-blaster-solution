@@ -36,6 +36,27 @@ namespace WordBlasterTheGame {
        */
       std::vector<Score> get_scores(void);
 
+      /**
+       * Load the scores from a file.
+       * 
+       * @param filename: path to the file where the
+       * scores are stored.
+       */
+      void load(std::string filename);
+
+    private:
+      /**
+       * Get a player from the scoreboard by
+       * his/her nickname. If the player
+       * does not exist yet, a new player
+       * is returned.
+       * 
+       * @param nickname: the nickname of the player
+       * 
+       * @returns a pointer to an existing or new player object
+       */
+      Player * get_player_by_nickname(std::string nickname);
+
     private:
       std::vector<Score> scores;
 

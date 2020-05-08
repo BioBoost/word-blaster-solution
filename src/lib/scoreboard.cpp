@@ -35,4 +35,50 @@ namespace WordBlasterTheGame {
     return scores;
   }
 
+  void Scoreboard::load(std::string filename) {
+    // File stream object
+    std::ifstream file;
+    file.open(filename);
+
+    if (!file) {
+      // Let's do nothing here as there are no scores yet.
+      // File will be created on save
+      return;
+    }
+
+    // Read the scores from the file
+    do {
+      std::string name;
+      std::string points;
+      
+      // The separator can be supplied to getline
+      std::getline(file, name, ',');
+      std::getline(file, points);
+
+      if (name != "" && points != "") {
+        int score = std::stoi(points);
+        add(Score(get_player_by_nickname(name), score));
+      }
+    } while (file.good());
+
+    // Close the file
+    file.close();
+  }
+
+  Player * Scoreboard::get_player_by_nickname(std::string nickname) {
+    Player * player = nullptr;
+    for (auto && score : scores) {
+      if (score.get_player()->get_nickname() == nickname) {
+        player = score.get_player();
+        break;
+      }
+    }
+
+    if (!player) {
+      player = new Player(nickname);
+    }
+
+    return player;
+  }
+
 };

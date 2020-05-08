@@ -152,3 +152,13 @@ To be able to save the player name along with the score we will also need a `get
 ### Step 12 - Displaying the Scoreboard
 
 To display the scoreboard we will need to add a method to the `UserIO` class. However to be able to access the actual score objects a method `get_scores()` will need to be added to `Scoreboard` class.
+
+### Step 13 - Loading the Scoreboard
+
+It is time to load the scoreboard from the scores file before the user plays the game. Since the CSV format is used, it's actually quitte easy to load the scores from the file.
+
+We will need to take the players into account for the scores. For example we should not create a new player object if the player already exists in the scoreboard. All scores of the same player should reference the same player object.
+
+To be able to create a `Score` object based on a player and a score we will also need to add a second constructor to `Score`.
+
+We should make a destructor for Scoreboard that deletes the Player objects that were created on the heap but we have a problem here that we will need to address in the next step.

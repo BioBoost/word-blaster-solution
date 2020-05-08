@@ -2,8 +2,14 @@
 
 namespace WordBlasterTheGame {
 
-  Score::Score(Player * player) {
+  Score::Score(Player * player)
+    : Score(player, 0) {
+      // Call other constructor
+  }
+
+  Score::Score(Player * player, unsigned int score) {
     this->player = player;
+    this->score = score;
   }
 
   void Score::add_score_for_correct_word(std::string word) {
