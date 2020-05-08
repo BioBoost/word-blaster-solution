@@ -172,3 +172,13 @@ What we require is a single place where the player objects are created and destr
 A better option is to create a `PlayerManager` class that tracks all players and creates a new player if required. We inject a pointer to this object in both `Game` and `Scoreboard`.
 
 This also requires some refactoring of the main.
+
+### Step 15 - Sorting and Limiting the Scores
+
+For the moment scores are not sorted in the `Scoreboard`. There is also no limit on how much scores can be added to the scoreboard.
+
+The fun thing here is that our `Score` objects are stored in an `std::vector` which alsready has a `sort()` method. There is however a small catch here. `std::vector` does not know how to sort `Score` objects. This problem can however be overcome by supplying a comparator method that needs to return `true` or `false` as an answer to the question: is `first` score smaller than `second` score.
+
+A basic example can be found at [http://www.cplusplus.com/reference/algorithm/sort/](http://www.cplusplus.com/reference/algorithm/sort/).
+
+Let's also add a `comparators` directory below `lib` as a start for adding some hierarchy to our files.

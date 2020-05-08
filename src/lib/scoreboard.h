@@ -54,8 +54,22 @@ namespace WordBlasterTheGame {
       void load(std::string filename);
 
     private:
+      /**
+       * Sort the scoreboard scores from high
+       * to low.
+       */
+      void sort(void);
+
+      /**
+       * Limit the scores tracked by the scoreboard
+       * to the maximum number of entries.
+       */
+      void limit(void);
+
+    private:
       std::vector<Score> scores;
       PlayerManager * playerManager = nullptr;
+      const static unsigned int ENTRY_LIMIT = 10;
   };
 
 };

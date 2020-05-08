@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <fstream>
+#include <algorithm>    // std::sort
+#include "./comparators/score_comparator.h"
 
 namespace WordBlasterTheGame {
   
@@ -11,6 +13,8 @@ namespace WordBlasterTheGame {
 
   void Scoreboard::add(Score score) {
     scores.push_back(score);
+    sort();
+    limit();
   }
 
   void Scoreboard::save(std::string filename) {
@@ -67,6 +71,18 @@ namespace WordBlasterTheGame {
 
     // Close the file
     file.close();
+  }
+
+  void Scoreboard::sort(void) {
+    ScoreComparator comparator;
+    std::sort(scores.begin(), scores.end(), comparator);
+    std::reverse(scores.begin(), scores.end());
+  }
+
+  void Scoreboard::limit(void) {
+    while (scores.size() > ENTRY_LIMIT) {
+      scores.pop_back();
+    }
   }
 
 };
