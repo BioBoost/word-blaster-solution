@@ -28,4 +28,11 @@ namespace WordBlasterTheGame {
     output.close();
   }
 
+  std::vector<Score> Scoreboard::get_scores(void) {
+    // This will return a copy of the internal std::vector.
+    // Not most performant solution but on the other side this way
+    // external code cannot change the scores.
+    return scores;
+  }
+
 };

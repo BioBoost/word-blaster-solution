@@ -2,6 +2,7 @@
 
 #include <string>
 #include "score.h"
+#include "scoreboard.h"
 
 namespace WordBlasterTheGame {
 
@@ -39,6 +40,15 @@ namespace WordBlasterTheGame {
        * @param score: the final score to be shown
        */
       static void show_final_score(Score score);
+
+      /**
+       * Output scoreboard screen with all the
+       * player scores.
+       *
+       * @param board: pointer to Scoreboard object
+       * that contains the player scores.
+       */
+      static void show_scoreboard(Scoreboard * board);
 
     private:
       /**

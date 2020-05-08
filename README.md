@@ -148,3 +148,7 @@ An object of `Scoreboard` can then be added to the game. Then the score of the p
 To save the scores we will be making use of a simple separator between the score and the player name. CSV (Comma Separated Values) is a popular format where each property is separated with a comma and each entry is saved as a single line. This parses more easily after the file has been loaded too.
 
 To be able to save the player name along with the score we will also need a `get_player()` method for `Score`.
+
+### Step 12 - Displaying the Scoreboard
+
+To display the scoreboard we will need to add a method to the `UserIO` class. However to be able to access the actual score objects a method `get_scores()` will need to be added to `Scoreboard` class.

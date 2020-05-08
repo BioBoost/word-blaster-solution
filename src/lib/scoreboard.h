@@ -29,6 +29,13 @@ namespace WordBlasterTheGame {
        */
       void save(std::string filename);
 
+      /**
+       * Get the list of scores as an std::vector.
+       * 
+       * @returns an std::vector of Score objects
+       */
+      std::vector<Score> get_scores(void);
+
     private:
       std::vector<Score> scores;
 

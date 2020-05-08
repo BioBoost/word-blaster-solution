@@ -38,6 +38,20 @@ namespace WordBlasterTheGame {
     press_enter_to_continue();
   }
 
+  void UserIO::show_scoreboard(Scoreboard * board) {
+    clear_terminal();
+    show_heading();
+    cout << endl << "HIGHSCORES:" << endl;
+    cout << "-----------" << endl;
+
+    for (auto && score : board->get_scores()) {
+      cout << to_string(score.total_score()) << " ["
+            << score.get_player()->get_nickname() << "]" << endl;
+    }
+    cout << endl;
+    press_enter_to_continue();
+  }
+
   void UserIO::show_heading(void) {
     string separator = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 
