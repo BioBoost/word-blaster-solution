@@ -239,3 +239,13 @@ Time to create a main menu:
 We are missing some functionality here to accomplish navigation in the game between different "screens". This can be fixed by changing the menu items from `std::string` to an object of for example `MenuItem` with a `label` and a `nextScreen` attribute. `nextScreen` can then be an enum that defines where the application should navigate to when the user selected the option.
 
 Some refactoring of `UserIO` is also required.
+
+### Step 21 - A WordPlaster Application
+
+A problem that has snuck on upon is the fact that the main and the `UserIO` class are knowing more than they should. `UserIO` for example knows what difficulties there are. It also knows about the menu items. This is not good practice.
+
+The solution lies in a `WordBlaster` class that manages the whole system. This one can know about the menu, difficulty and such.
+
+This class is not to be confused with the `Game` class, which knows about the game logic itself.
+
+In this step we'll start with the refactor process of `main()`.
