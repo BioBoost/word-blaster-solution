@@ -226,3 +226,16 @@ More info at:
 
 * [getch and arrow codes](https://stackoverflow.com/questions/10463201/getch-and-arrow-codes)
 * [Where is the conio.h header file on Linux?](https://stackoverflow.com/questions/8792317/where-is-the-conio-h-header-file-on-linux-why-cant-i-find-conio-h)
+
+### Step 20 - A Main Menu
+
+Time to create a main menu:
+
+* Play New Game
+* Change Difficulty
+* Show Scoreboard
+* Exit
+
+We are missing some functionality here to accomplish navigation in the game between different "screens". This can be fixed by changing the menu items from `std::string` to an object of for example `MenuItem` with a `label` and a `nextScreen` attribute. `nextScreen` can then be an enum that defines where the application should navigate to when the user selected the option.
+
+Some refactoring of `UserIO` is also required.

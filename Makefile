@@ -35,7 +35,8 @@ OBJS := $(SRCDIR)/main.o \
 				$(LIBDIR)/comparators/score_comparator.o \
 				$(LIBDIR)/helpers/score_calculator.o \
 				$(LIBDIR)/menu/menu.o \
-				$(LIBDIR)/helpers/terminal.o
+				$(LIBDIR)/helpers/terminal.o \
+				$(LIBDIR)/menu/menu_item.o
 
 all: makebuildir $(TARGET)
 

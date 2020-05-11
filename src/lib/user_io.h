@@ -34,6 +34,14 @@ namespace WordBlasterTheGame {
       static Difficulty request_difficulty(void);
 
       /**
+       * Show the main navigation menu to the user.
+       *
+       * @returns the screen to which to navigate
+       * based on the user's selection.
+       */
+      static Screen show_main_menu(void);
+
+      /**
        * Output the next word for the user to type
        * and let the user input an attempt to copy
        * the word.

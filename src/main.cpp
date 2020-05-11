@@ -17,10 +17,29 @@ int main() {
   // Ask player for nickname and request player manager for player object
   Player * currentPlayer = playerManager.get_player_by_nickname(UserIO::request_nickname());
 
-  // Let's play a game of word blaster
   Game wordblaster(currentPlayer, &playerManager);
-  wordblaster.change_difficulty(UserIO::request_difficulty());
-  wordblaster.play();
+
+  // Show Main Menu
+  Screen next;
+  do {
+    next = UserIO::show_main_menu();
+
+    switch (next) {
+      case Screen::DIFFICULTY:
+        wordblaster.change_difficulty(UserIO::request_difficulty());
+        break;
+
+      case Screen::PLAY:
+        wordblaster.play();
+        break;
+
+      case Screen::SCOREBOARD:
+        UserIO::show_scoreboard(wordblaster.get_scoreboard());
+        break;
+
+      default: break;
+    }
+  } while (next != Screen::EXIT);
 
   return 0;
 }

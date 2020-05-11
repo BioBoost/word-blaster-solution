@@ -2,13 +2,17 @@
 
 namespace WordBlasterTheGame {
 
-  void Menu::add(std::string item) {
-    items.push_back({item});
+  void Menu::add(std::string item, Screen nextScreen) {
+    items.push_back({item, nextScreen});
     currentlySelected = 0;
   }
 
   std::vector<std::string> Menu::get_labels(void) {
-    return items;
+    std::vector<std::string> labels;
+    for (auto && item : items) {
+      labels.push_back(item.get_label());
+    }
+    return labels;
   }
 
   void Menu::select_next(void) {
@@ -22,8 +26,8 @@ namespace WordBlasterTheGame {
     }
   }
 
-  std::string Menu::get_selected_label(void) {
-    if (currentlySelected < 0) return "";
+  MenuItem Menu::get_selected_item(void) {
+    if (currentlySelected < 0) return {"", Screen::NOT_SET};
 
     return items[currentlySelected];
   }

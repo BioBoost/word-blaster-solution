@@ -40,6 +40,14 @@ namespace WordBlasterTheGame {
        */
       void change_difficulty(Difficulty difficulty);
 
+      /**
+       * Get the current scoreboard.
+       * 
+       * @returns pointer to the scoreboard
+       * for the current difficulty.
+       */
+      Scoreboard * get_scoreboard(void);
+
     private:
       /**
        * Load the word dictionary for the

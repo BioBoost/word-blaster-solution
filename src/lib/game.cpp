@@ -65,6 +65,10 @@ namespace WordBlasterTheGame {
     load_scoreboard();
   }
 
+  Scoreboard * Game::get_scoreboard(void) {
+    return &scoreboard;
+  }
+
   void Game::load_dictionary(void) {
     words.clear();
     WordLoader::load(&words, DICTIONARY_FILES[(int)(difficulty)]);    // Calling static method !!!

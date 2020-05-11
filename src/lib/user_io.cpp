@@ -24,9 +24,9 @@ namespace WordBlasterTheGame {
 
   Difficulty UserIO::request_difficulty(void) {
     Menu menu;
-    menu.add("Easy");
-    menu.add("Medium");
-    menu.add("Hard");
+    menu.add("Easy", Screen::MAIN_MENU);
+    menu.add("Medium", Screen::MAIN_MENU);
+    menu.add("Hard", Screen::MAIN_MENU);
 
     Terminal::Key key;
     do {
@@ -42,9 +42,33 @@ namespace WordBlasterTheGame {
       }
     } while (key != Terminal::Key::ENTER);
 
-    if (menu.get_selected_label() == "Easy") return Difficulty::EASY;
-    else if (menu.get_selected_label() == "Hard") return Difficulty::HARD;
+    if (menu.get_selected_item().get_label() == "Easy") return Difficulty::EASY;
+    else if (menu.get_selected_item().get_label() == "Hard") return Difficulty::HARD;
     else return Difficulty::NORMAL;
+  }
+
+  Screen UserIO::show_main_menu(void) {
+    Menu mainMenu;
+    mainMenu.add("Play New Game", Screen::PLAY);
+    mainMenu.add("Change Difficulty", Screen::DIFFICULTY);
+    mainMenu.add("Show Scoreboard", Screen::SCOREBOARD);
+    mainMenu.add("Exit", Screen::EXIT);
+
+    Terminal::Key key;
+    do {
+      clear_terminal();
+      show_heading();
+      output_menu(&mainMenu, "");
+      cout << endl << "Use the arrow keys to select a menu item and ENTER to select it." << endl;
+      key = Terminal::pressed_key();
+      if (key == Terminal::Key::DOWN) {
+        mainMenu.select_next();
+      } else if (key == Terminal::UP) {
+        mainMenu.select_previous();
+      }
+    } while (key != Terminal::Key::ENTER);
+
+    return mainMenu.get_selected_item().get_next_screen();
   }
 
   std::string UserIO::request_user_attempt_at_word(unsigned int number, std::string word) {
@@ -106,7 +130,7 @@ namespace WordBlasterTheGame {
     std::vector<std::string> labels = menu->get_labels();
     cout << title << endl;
     for (unsigned int i = 0; i < labels.size(); i++) {
-      if (menu->get_selected_label() == labels[i]) {
+      if (menu->get_selected_item().get_label() == labels[i]) {
         cout << "==> ";
       } else {
         cout << "    ";

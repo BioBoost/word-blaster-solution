@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <string>
+#include "menu_item.h"
 
 namespace WordBlasterTheGame {
 
@@ -13,8 +14,11 @@ namespace WordBlasterTheGame {
        * 
        * @param item: the label for the item to
        * be shown to the user.
+       * @param nextScreen: the next screen that
+       * should be shown after the user has made
+       * his/her choice
        */
-      void add(std::string item);
+      void add(std::string item, Screen nextScreen);
 
       /**
        * Get an std::vector containing all the labels
@@ -43,12 +47,14 @@ namespace WordBlasterTheGame {
       void select_previous(void);
 
       /**
-       * Returns the label of the currently selected item.
+       * Get the item that is currently selected.
+       * 
+       * @returns the currently selected item
        */
-      std::string get_selected_label(void);
+      MenuItem get_selected_item(void);
 
     private:
-      std::vector<std::string> items;
+      std::vector<MenuItem> items;
       int currentlySelected = -1;
   };
 
