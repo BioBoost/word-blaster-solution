@@ -203,3 +203,11 @@ Currently the score only uses the word length to determine the score. To differe
 * the difficulty setting
 
 For this we will have to refactor the Score class a bit. Actually Score is not more than a data object and it does not have to know about the mechanism that determines the actual score (would require dependency for `Difficulty` and timing). A better option is to create a `ScoreCalculator` helper class.
+
+### Step 18 - Building a Menu
+
+At the moment the game is still missing a big component. A menu that allows us to present options to the user, switch between the screens and allows a player to select for example to play again.
+
+Let's start building a menu that can present different options to the player. Basically a menu is a list of labels or in other words an `std::vector` of `std::string` objects.
+
+Let's test the Menu by creating a selection menu for the difficulty. Actual item selection will be implemented in the next step.

@@ -3,6 +3,8 @@
 #include <string>
 #include "score.h"
 #include "scoreboard.h"
+#include "menu/menu.h"
+#include "difficulty.h"
 
 namespace WordBlasterTheGame {
 
@@ -23,6 +25,13 @@ namespace WordBlasterTheGame {
        * @returns the nickname of the user as a string
        */
       static std::string request_nickname(void);
+
+      /**
+       * Ask the user to select the desired difficulty.
+       *
+       * @returns the selected difficulty
+       */
+      static Difficulty request_difficulty(void);
 
       /**
        * Output the next word for the user to type
@@ -72,6 +81,19 @@ namespace WordBlasterTheGame {
        * Read a string from the terminal.
        */
       static std::string request_string_input(void);
+
+      public:
+      /**
+       * Output a menu to the terminal with the given title.
+       * 
+       * @param menu: the menu that needs to be shown in
+       * the terminal
+       * @param title: the title that should be outputted
+       * before the menu is printed
+       * @param numbered: indicate if each label should be prefixed
+       * with a number from 1 to the size of the vector
+       */
+      static void output_menu(Menu * menu, std::string title, bool numbered=true);
 
   };
 

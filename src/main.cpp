@@ -3,6 +3,7 @@
 #include "lib/user_io.h"
 #include "lib/player.h"
 #include "lib/player_manager.h"
+#include "lib/menu/menu.h"
 
 using namespace std;
 using namespace WordBlasterTheGame;
@@ -18,6 +19,7 @@ int main() {
 
   // Let's play a game of word blaster
   Game wordblaster(currentPlayer, &playerManager);
+  wordblaster.change_difficulty(UserIO::request_difficulty());
   wordblaster.play();
 
   return 0;

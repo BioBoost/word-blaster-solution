@@ -21,6 +21,22 @@ namespace WordBlasterTheGame {
     return request_string_input();
   }
 
+  Difficulty UserIO::request_difficulty(void) {
+    Difficulty difficulty = Difficulty::NORMAL;
+
+    Menu menu;
+    menu.add("Easy");
+    menu.add("Medium");
+    menu.add("Hard");
+
+    output_menu(&menu, "Please select a difficulty:");
+
+    // FIX To be removed
+    press_enter_to_continue();
+
+    return difficulty;
+  }
+
   std::string UserIO::request_user_attempt_at_word(unsigned int number, std::string word) {
     clear_terminal();
     show_heading();
@@ -74,6 +90,15 @@ namespace WordBlasterTheGame {
     std::string input;
     getline(cin, input);
     return input;
+  }
+
+  void UserIO::output_menu(Menu * menu, std::string title, bool numbered) {
+    std::vector<std::string> labels = menu->get_labels();
+    cout << title << endl;
+    for (unsigned int i = 0; i < labels.size(); i++) {
+      if (numbered) cout << (i+1) << ". ";
+      cout << labels[i] << endl;
+    }
   }
 
 };
