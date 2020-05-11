@@ -25,8 +25,31 @@ namespace WordBlasterTheGame {
        */
       std::vector<std::string> get_labels(void);
 
+    public:
+      /**
+       * Select the next item in the menu list. If the
+       * currently selected item was the last
+       * in the list, the selector will jump to the top
+       * of the menu.
+       */
+      void select_next(void);
+
+      /**
+       * Select the previous item in the menu list. If the
+       * currently selected item was the first
+       * in the list, the selector will jump to the bottom
+       * of the menu.
+       */
+      void select_previous(void);
+
+      /**
+       * Returns the label of the currently selected item.
+       */
+      std::string get_selected_label(void);
+
     private:
       std::vector<std::string> items;
+      int currentlySelected = -1;
   };
 
 };

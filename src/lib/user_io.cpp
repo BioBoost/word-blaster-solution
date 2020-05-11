@@ -1,6 +1,7 @@
 #include "user_io.h"
 
 #include <iostream>
+#include "helpers/terminal.h"
 
 using namespace std;
 
@@ -22,19 +23,28 @@ namespace WordBlasterTheGame {
   }
 
   Difficulty UserIO::request_difficulty(void) {
-    Difficulty difficulty = Difficulty::NORMAL;
-
     Menu menu;
     menu.add("Easy");
     menu.add("Medium");
     menu.add("Hard");
 
-    output_menu(&menu, "Please select a difficulty:");
+    Terminal::Key key;
+    do {
+      clear_terminal();
+      show_heading();
+      output_menu(&menu, "Please select a difficulty:");
+      cout << endl << "Use the arrow keys to select a menu item and ENTER to select it." << endl;
+      key = Terminal::pressed_key();
+      if (key == Terminal::Key::DOWN) {
+        menu.select_next();
+      } else if (key == Terminal::UP) {
+        menu.select_previous();
+      }
+    } while (key != Terminal::Key::ENTER);
 
-    // FIX To be removed
-    press_enter_to_continue();
-
-    return difficulty;
+    if (menu.get_selected_label() == "Easy") return Difficulty::EASY;
+    else if (menu.get_selected_label() == "Hard") return Difficulty::HARD;
+    else return Difficulty::NORMAL;
   }
 
   std::string UserIO::request_user_attempt_at_word(unsigned int number, std::string word) {
@@ -96,6 +106,12 @@ namespace WordBlasterTheGame {
     std::vector<std::string> labels = menu->get_labels();
     cout << title << endl;
     for (unsigned int i = 0; i < labels.size(); i++) {
+      if (menu->get_selected_label() == labels[i]) {
+        cout << "==> ";
+      } else {
+        cout << "    ";
+      }
+
       if (numbered) cout << (i+1) << ". ";
       cout << labels[i] << endl;
     }

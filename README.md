@@ -211,3 +211,18 @@ At the moment the game is still missing a big component. A menu that allows us t
 Let's start building a menu that can present different options to the player. Basically a menu is a list of labels or in other words an `std::vector` of `std::string` objects.
 
 Let's test the Menu by creating a selection menu for the difficulty. Actual item selection will be implemented in the next step.
+
+### Step 19 - A Selection Menu
+
+While it's perfectly possible for us to ask the user "please type the menu option you wish to apply" or something similar, but it would be much cooler if we were able to use the arrow keys to move up and down the menu and enter to select an item.
+
+Let's add some functionality to the menu that will allow us to select the next and previous item.
+
+Next we also need to capture key presses from the user. This is a bit trickier. It can be achieved using the function `getch()` but the problem is that this is only available on Windows by default via the `conio.h` header. A linux alternative should be `ncursus`. For the moment we will need to keep in mind that this will only work on Windows.
+
+Let's add a helper class `Terminal` for the keypress functionality.
+
+More info at:
+
+* [getch and arrow codes](https://stackoverflow.com/questions/10463201/getch-and-arrow-codes)
+* [Where is the conio.h header file on Linux?](https://stackoverflow.com/questions/8792317/where-is-the-conio-h-header-file-on-linux-why-cant-i-find-conio-h)
