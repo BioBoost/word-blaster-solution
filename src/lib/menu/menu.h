@@ -10,6 +10,15 @@ namespace WordBlasterTheGame {
 
     public:
       /**
+       * Constructor for Menu.
+       * 
+       * @param title: the title for the menu that describes
+       * the items that are contained in the menu.
+       */
+      Menu(std::string title);
+
+    public:
+      /**
        * Add an item to the menu
        * 
        * @param item: the label for the item to
@@ -53,9 +62,18 @@ namespace WordBlasterTheGame {
        */
       MenuItem get_selected_item(void);
 
+      /**
+       * Get the title for the menu.
+       * 
+       * @returns the title of the menu as an
+       * std::string
+       */
+      std::string get_title(void);
+
     private:
       std::vector<MenuItem> items;
       int currentlySelected = -1;
+      std::string title = "";
   };
 
 };

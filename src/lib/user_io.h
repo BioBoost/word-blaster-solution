@@ -27,19 +27,14 @@ namespace WordBlasterTheGame {
       static std::string request_nickname(void);
 
       /**
-       * Ask the user to select the desired difficulty.
-       *
-       * @returns the selected difficulty
+       * Show the menu to the user and request
+       * the user to select an item from the menu.
+       * 
+       * @param menu: the menu to display to the user
+       * 
+       * @returns the selected MenuItem from the menu
        */
-      static Difficulty request_difficulty(void);
-
-      /**
-       * Show the main navigation menu to the user.
-       *
-       * @returns the screen to which to navigate
-       * based on the user's selection.
-       */
-      static Screen show_main_menu(void);
+      static MenuItem request_menu_selection(Menu * menu);
 
       /**
        * Output the next word for the user to type
@@ -81,11 +76,6 @@ namespace WordBlasterTheGame {
       static void press_enter_to_continue(void);
 
       /**
-       * Clear the terminal screen.
-       */
-      static void clear_terminal(void);
-
-      /**
        * Read a string from the terminal.
        */
       static std::string request_string_input(void);
@@ -96,12 +86,10 @@ namespace WordBlasterTheGame {
        * 
        * @param menu: the menu that needs to be shown in
        * the terminal
-       * @param title: the title that should be outputted
-       * before the menu is printed
        * @param numbered: indicate if each label should be prefixed
        * with a number from 1 to the size of the vector
        */
-      static void output_menu(Menu * menu, std::string title, bool numbered=true);
+      static void output_menu(Menu * menu, bool numbered=true);
 
   };
 

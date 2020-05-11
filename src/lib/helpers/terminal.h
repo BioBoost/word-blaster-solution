@@ -22,6 +22,11 @@ namespace WordBlasterTheGame {
        */
       static Key pressed_key(void);
 
+      /**
+       * Clear the terminal screen.
+       */
+      static void clear(void);
+
   };
 
 };

@@ -249,3 +249,15 @@ The solution lies in a `WordBlaster` class that manages the whole system. This o
 This class is not to be confused with the `Game` class, which knows about the game logic itself.
 
 In this step we'll start with the refactor process of `main()`.
+
+### Step 22 - Refactoring UserIO
+
+So let's refactor everything out of `UserIO` that does not belong there. We may need to alter some minor things in certain classes. Below is an overview of the most important changed.
+
+* Move `clear_terminal()` to the class `Terminal` and call it `clear()`.
+* Create method `UserIO::request_menu_selection()` that knows nothing of the content of the menu but just allows the user to select an item from it. The actual menu creation is then moved to the `WordBlaster` class.
+  * This allows us to remove the `UserIO::show_main_menu()`
+  * This allows us to remove the `UserIO::request_difficulty()`
+* Add a `title` to the `Menu` class.
+
+Do note that `UserIO` still knows about the `Menu` class and such. However, it does not know what items are in the menu class.

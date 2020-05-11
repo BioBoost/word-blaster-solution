@@ -23,5 +23,10 @@ namespace WordBlasterTheGame {
     }
     return Key::UNKNOWN;
   }
+  
+  void Terminal::clear(void) {
+    // If this doesn't work on windows, you'll need: system("cls")
+    system("clear");
+  }
 
 };

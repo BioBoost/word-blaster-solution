@@ -2,6 +2,10 @@
 
 namespace WordBlasterTheGame {
 
+  Menu::Menu(std::string title) {
+    this->title = title;
+  }
+
   void Menu::add(std::string item, Screen nextScreen) {
     items.push_back({item, nextScreen});
     currentlySelected = 0;
@@ -30,6 +34,10 @@ namespace WordBlasterTheGame {
     if (currentlySelected < 0) return {"", Screen::NOT_SET};
 
     return items[currentlySelected];
+  }
+
+  std::string Menu::get_title(void) {
+    return title;
   }
 
 };
