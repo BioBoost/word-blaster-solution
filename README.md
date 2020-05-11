@@ -261,3 +261,7 @@ So let's refactor everything out of `UserIO` that does not belong there. We may 
 * Add a `title` to the `Menu` class.
 
 Do note that `UserIO` still knows about the `Menu` class and such. However, it does not know what items are in the menu class.
+
+### Step 23 - Depending on Difficulty
+
+At the moment quitte a lot of things are depending on the difficulty. While there is no real way around this we can however change `Difficulty` to become a class instead of just an enum. That way we can move some small code parts into the `Difficulty` class.

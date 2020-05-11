@@ -34,13 +34,10 @@ namespace WordBlasterTheGame {
     } while (next != Screen::EXIT);
   }
 
-  Difficulty WordBlaster::request_difficulty(void) {
+  Difficulty::Level WordBlaster::request_difficulty(void) {
     Menu difficultyMenu = build_difficulty_options();
     UserIO::request_menu_selection(&difficultyMenu);
-
-    if (difficultyMenu.get_selected_item().get_label() == "Easy") return Difficulty::EASY;
-    else if (difficultyMenu.get_selected_item().get_label() == "Hard") return Difficulty::HARD;
-    else return Difficulty::NORMAL;
+    return Difficulty::from_string(difficultyMenu.get_selected_item().get_label());
   }
 
   WordBlaster::~WordBlaster(void) {
@@ -59,9 +56,9 @@ namespace WordBlasterTheGame {
 
   Menu WordBlaster::build_difficulty_options(void) {
     Menu difficultyMenu("Please select a difficulty:");
-    difficultyMenu.add("Easy", Screen::MAIN_MENU);
-    difficultyMenu.add("Medium", Screen::MAIN_MENU);
-    difficultyMenu.add("Hard", Screen::MAIN_MENU);
+    for (auto && difficulty : Difficulty::get_all()) {
+      difficultyMenu.add(difficulty, Screen::MAIN_MENU);
+    }
     return difficultyMenu;
   }
 

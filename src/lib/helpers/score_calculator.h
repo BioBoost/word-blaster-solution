@@ -25,7 +25,7 @@ namespace WordBlasterTheGame {
      * current players score.
      */
     static unsigned int determine_score(std::string word,
-      Difficulty difficulty, unsigned int milliseconds);
+      Difficulty::Level difficulty, unsigned int milliseconds);
 
   };
 

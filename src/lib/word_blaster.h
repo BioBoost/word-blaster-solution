@@ -47,7 +47,7 @@ namespace WordBlasterTheGame {
        * 
        * @returns the choosen difficulty
        */
-      Difficulty request_difficulty(void);
+      Difficulty::Level request_difficulty(void);
 
       /**
        * Build a Menu object for the Main Menu.

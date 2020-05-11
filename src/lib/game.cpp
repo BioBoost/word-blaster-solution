@@ -28,7 +28,7 @@ namespace WordBlasterTheGame {
        // no default constructor exists for Scoreboard
     this->player = player;
     this->playerManager = playerManager;
-    change_difficulty(Difficulty::NORMAL);
+    change_difficulty(Difficulty::Level::NORMAL);
   }
 
   void Game::play(void) {
@@ -59,7 +59,7 @@ namespace WordBlasterTheGame {
     UserIO::show_scoreboard(&scoreboard);
   }
 
-  void Game::change_difficulty(Difficulty difficulty) {
+  void Game::change_difficulty(Difficulty::Level difficulty) {
     this->difficulty = difficulty;
     load_dictionary();
     load_scoreboard();

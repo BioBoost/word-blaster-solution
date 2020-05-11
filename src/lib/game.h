@@ -38,7 +38,7 @@ namespace WordBlasterTheGame {
        * 
        * @param difficulty: the difficulty to change to
        */
-      void change_difficulty(Difficulty difficulty);
+      void change_difficulty(Difficulty::Level difficulty);
 
       /**
        * Get the current scoreboard.
@@ -75,7 +75,7 @@ namespace WordBlasterTheGame {
       Scoreboard scoreboard;
       PlayerManager * playerManager = nullptr;
 
-      Difficulty difficulty = Difficulty::NORMAL;
+      Difficulty::Level difficulty = Difficulty::Level::NORMAL;
 
       // Static variables are not kept on an object base
       // but rather stored per class
