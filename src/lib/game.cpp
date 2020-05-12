@@ -32,6 +32,8 @@ namespace WordBlasterTheGame {
   }
 
   void Game::play(void) {
+    UserIO::show_game_instructions();
+
     Score score(player);   // Create new score object for this play
     for (unsigned int i = 0; i < numberOfWordsToType; i++) {
       // Local variable required because we need the same word

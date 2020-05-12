@@ -38,7 +38,8 @@ OBJS := $(SRCDIR)/main.o \
 				$(LIBDIR)/helpers/terminal.o \
 				$(LIBDIR)/menu/menu_item.o \
 				$(LIBDIR)/word_blaster.o \
-				$(LIBDIR)/difficulty.o
+				$(LIBDIR)/difficulty.o \
+				$(LIBDIR)/helpers/string_helper.o
 
 all: makebuildir $(TARGET)
 

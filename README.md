@@ -314,3 +314,7 @@ int main() {
   return 0;
 }
 ```
+
+### Step 25 - Going Crazy on Style
+
+Made some "small" alterations to the style of the different screens and created some `StringHelper` methods to for example center strings inside of the screen boundary box.

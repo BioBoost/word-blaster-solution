@@ -55,7 +55,7 @@ namespace WordBlasterTheGame {
   }
 
   Menu WordBlaster::build_difficulty_options(void) {
-    Menu difficultyMenu("Please select a difficulty:");
+    Menu difficultyMenu("Difficulty Setting");
     for (auto && difficulty : Difficulty::get_all()) {
       difficultyMenu.add(difficulty, Screen::MAIN_MENU);
     }
