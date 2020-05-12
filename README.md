@@ -265,3 +265,52 @@ Do note that `UserIO` still knows about the `Menu` class and such. However, it d
 ### Step 23 - Depending on Difficulty
 
 At the moment quitte a lot of things are depending on the difficulty. While there is no real way around this we can however change `Difficulty` to become a class instead of just an enum. That way we can move some small code parts into the `Difficulty` class.
+
+### Step 24 - Fix the Number of Words
+
+Oops. Looks like we've been constantly testing the game with two words and also limited dictionaries. Time to fix this to a bigger value.
+
+Found a huge list of words at [https://github.com/dwyl/english-words](https://github.com/dwyl/english-words).
+
+Quick and dirty solution to filter the words into the different difficulties:
+
+```cpp
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main() {
+  ifstream input;
+  input.open("./dictionaries/words_alpha.txt");
+
+  ofstream easy;
+  easy.open("./dictionaries/easy.txt");
+
+  ofstream normal;
+  normal.open("./dictionaries/normal.txt");
+
+  ofstream hard;
+  hard.open("./dictionaries/hard.txt");
+
+  do {
+    std::string word;
+    std::getline(input, word);
+
+    if (word.length() < 5) {
+      easy << word << endl;
+    } else if (word.length() < 8) {
+      normal << word << endl;
+    } else {
+      hard << word << endl;
+    }
+  } while (input.good());
+
+  input.close();
+  easy.close();
+  normal.close();
+  hard.close();
+
+  return 0;
+}
+```

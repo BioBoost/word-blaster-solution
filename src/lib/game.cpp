@@ -33,7 +33,7 @@ namespace WordBlasterTheGame {
 
   void Game::play(void) {
     Score score(player);   // Create new score object for this play
-    for (unsigned int i = 0; i < 2; i++) {
+    for (unsigned int i = 0; i < numberOfWordsToType; i++) {
       // Local variable required because we need the same word
       // at the end to check if it is correct
       std::string wordToType = words.get_random_word();

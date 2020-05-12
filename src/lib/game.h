@@ -74,6 +74,7 @@ namespace WordBlasterTheGame {
       Player * player = nullptr;
       Scoreboard scoreboard;
       PlayerManager * playerManager = nullptr;
+      unsigned int numberOfWordsToType = 10;
 
       Difficulty::Level difficulty = Difficulty::Level::NORMAL;
 
