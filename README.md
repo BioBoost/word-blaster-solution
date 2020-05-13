@@ -14,6 +14,12 @@ This project is equipped with a make file to build and run the game. Just run th
 make run
 ```
 
+### On Linux
+
+The only code that is operating system dependent is `Terminal`. It makes use of the `getch()` function of `conio.h` that is only available on Windows. An alternative is provided for Linux in the code.
+
+The source code is equipped with pre-processor directives that detect the current operating system.
+
 ### Doxygen
 
 This project contains doxygen comments which can be generated into a fancy API site. Just install [doxygen](http://www.doxygen.nl/) and run the `doxygen` or `make docs` command (you may need to add doxygen to your PATH) in the root directory of this project. The html output can be found at [./docs/html/index.html](./docs/html/index.html).
@@ -139,7 +145,7 @@ By adding some private methods such as `show_heading()` to `UserIO`, each output
 
 Typically a game tracks the scores of the players between different game sessions by saving the scores in a file. These will then be loaded when the user starts the game.
 
-We will start of with a `Scoreboard` class that can track a list of scores. Using an `std::vector` this will be easiest. 
+We will start of with a `Scoreboard` class that can track a list of scores. Using an `std::vector` this will be easiest.
 
 An object of `Scoreboard` can then be added to the game. Then the score of the player can be added to the board once the game is finished.
 

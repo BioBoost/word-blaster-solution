@@ -27,6 +27,19 @@ namespace WordBlasterTheGame {
        */
       static void clear(void);
 
+      /**
+       * Get single character from the terminal.
+       * Equivalent to getch() from conio.h
+       * 
+       * Got this nice  implementation from
+       * https://stackoverflow.com/questions/7469139/what-is-the-equivalent-to-getch-getche-in-linux
+       *
+       * @returns keycode from pressed key.
+       */
+#ifdef __linux__
+      static char getch(void);
+#endif
+
   };
 
 };
