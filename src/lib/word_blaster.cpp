@@ -41,7 +41,6 @@ namespace WordBlasterTheGame {
   }
 
   WordBlaster::~WordBlaster(void) {
-    delete currentPlayer;
     delete game;
   }
 
