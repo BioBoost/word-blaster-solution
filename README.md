@@ -6,6 +6,8 @@ Word Blaster challenges the player to type a list of words as fast as possible a
 
 The words are selected randomly from text files located on the file system.
 
+![Welcome Screen](./img/welcome.png)
+
 ## Building and running the game
 
 This project is equipped with a make file to build and run the game. Just run the command bellow.
@@ -23,6 +25,8 @@ The source code is equipped with pre-processor directives that detect the curren
 ### Doxygen
 
 This project contains doxygen comments which can be generated into a fancy API site. Just install [doxygen](http://www.doxygen.nl/) and run the `doxygen` or `make docs` command (you may need to add doxygen to your PATH) in the root directory of this project. The html output can be found at [./docs/html/index.html](./docs/html/index.html).
+
+![Doxygen Docs](./img/doxygen.png)
 
 ## Part of C++ Course
 
