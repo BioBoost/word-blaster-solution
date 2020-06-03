@@ -1,33 +1,36 @@
 #pragma once
 
-namespace WordBlasterTheGame {
+namespace WordBlasterTheGame
+{
 
-  class Terminal {
+  class Terminal
+  {
 
-    public: enum Key {
+  public:
+    enum Key
+    {
       UP,
       DOWN,
       ENTER,
       UNKNOWN
     };
 
-    public:
-
-      /**
+  public:
+    /**
        * Wait for the user to press a single key
        * and return the pressed key.
        * 
        * @returns the pressed Key or Key::UNKNOWN
        * if the pressed key is not supported.
        */
-      static Key pressed_key(void);
+    static Key pressed_key(void);
 
-      /**
+    /**
        * Clear the terminal screen.
        */
-      static void clear(void);
+    static void clear(void);
 
-      /**
+    /**
        * Get single character from the terminal.
        * Equivalent to getch() from conio.h
        * 
@@ -36,10 +39,9 @@ namespace WordBlasterTheGame {
        *
        * @returns keycode from pressed key.
        */
-#ifdef __linux__
-      static char getch(void);
-#endif
-
+    #if defined __linux__ || defined __APPLE__
+        static char getch(void);
+    #endif
   };
 
-};
+}; // namespace WordBlasterTheGame

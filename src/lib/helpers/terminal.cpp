@@ -1,12 +1,12 @@
 #include "terminal.h"
 #include <cstdlib>
 
-#ifdef __linux__
+#if defined __linux__ || __APPLE__
   #include <unistd.h>
   #include <termios.h>
   #include <iostream>
 #elif _WIN32
-  #include <conio.h>    // Windows only
+  #include <conio.h>   // Windows only
 #endif
 
 namespace WordBlasterTheGame {
@@ -33,8 +33,8 @@ namespace WordBlasterTheGame {
   }
 #endif
 
-  // Linux implementation
-#ifdef __linux__
+  // Linux and Mac OSX implementation
+#if defined __linux__ || defined __APPLE__
   Terminal::Key Terminal::pressed_key(void) {
     // Arrow key are two codes: 27 91 and keycode
     int key = getch();
@@ -55,12 +55,13 @@ namespace WordBlasterTheGame {
   }
 #endif
 
+
   void Terminal::clear(void) {
     // If this doesn't work on windows, you'll need: system("cls")
     system("clear");
   }
 
-#ifdef __linux__
+#ifdef __linux__ 
   char Terminal::getch(void) {
     // Source: https://stackoverflow.com/questions/7469139/what-is-the-equivalent-to-getch-getche-in-linux
     char buf = 0;
@@ -81,6 +82,23 @@ namespace WordBlasterTheGame {
     if(tcsetattr(0, TCSADRAIN, &old) < 0)
         perror("tcsetattr ~ICANON");
     return buf;
+  }
+
+#endif
+
+#ifdef __APPLE__
+  char Terminal::getch(void) {
+    //source: https://www.daniweb.com/programming/software-development/threads/410155/gcc-equivalent-for-getch
+    struct termios oldt,
+    newt;
+    int ch;
+    tcgetattr( STDIN_FILENO, &oldt );
+    newt = oldt;
+    newt.c_lflag &= ~( ICANON | ECHO );
+    tcsetattr( STDIN_FILENO, TCSANOW, &newt );
+    ch = getchar();
+    tcsetattr( STDIN_FILENO, TCSANOW, &oldt );
+    return ch;
   }
 #endif
 
